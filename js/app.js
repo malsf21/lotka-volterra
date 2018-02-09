@@ -6,7 +6,7 @@ let c = 2.1;
 let d = 1.8;
 
 let step = 0.01;
-let time = 100;
+let time = 50;
 
 let prey0 = 10;
 let predator0 = 5;
@@ -47,11 +47,13 @@ let ppChart = new Chart(ppctx, {
     datasets: [
       {
         label: 'Prey',
-        data: simplify(preyArr,0.25),
+        yAxisID: 'prey-y-axis',
+        data: simplify(preyArr,0.20),
         borderColor: "green"
       }, {
         label: 'Predator',
-        data: simplify(predatorArr,0.25),
+        yAxisID: 'predator-y-axis',
+        data: simplify(predatorArr,0.20),
         borderColor: "red"
       }
     ]
@@ -61,22 +63,35 @@ let ppChart = new Chart(ppctx, {
       xAxes: [
         {
           type: 'linear',
-          position: 'bottom'
+          position: 'bottom',
+          scaleLabel:{
+            display: true,
+            labelString: "Time Passed (units)"
+          }
         }
-      ]
+      ],
+      yAxes: [{
+                id: 'prey-y-axis',
+                type: 'linear',
+                position: 'left',
+                scaleLabel:{
+                  display: true,
+                  labelString: "# of Prey"
+                }
+            }, {
+                id: 'predator-y-axis',
+                type: 'linear',
+                position: 'right',
+                scaleLabel:{
+                  display: true,
+                  labelString: "# of Predators"
+                }
+            }]
     },
     elements: {
       line: {
         tension: 0
       }
-    },
-    downsample: {
-      enabled: true,
-      threshold: 1000,
-      auto: false,
-      onInit: true,
-      preferOriginalData: true,
-      restoreOriginalData: false,
     }
   }
 });
@@ -87,7 +102,7 @@ let phaseChart = new Chart(phasectx, {
   data: {
     datasets: [
       {
-        label: 'Phase Chart',
+        label: 'Prey vs. Predator',
         data: phaseArr
       }
     ]
@@ -97,7 +112,20 @@ let phaseChart = new Chart(phasectx, {
       xAxes: [
         {
           type: 'linear',
-          position: 'bottom'
+          position: 'bottom',
+          scaleLabel:{
+            display: true,
+            labelString: "# of Prey"
+          }
+        }
+      ],
+      yAxes: [
+        {
+          type: 'linear',
+          scaleLabel:{
+            display: true,
+            labelString: "# of Predators"
+          }
         }
       ]
     }
