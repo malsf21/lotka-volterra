@@ -29,7 +29,7 @@ function predatorEq(x, y) {
 for (let i = 0; i < time; i += step) {
   preyArr.push({x: i, y: prey0})
   predatorArr.push({x: i, y: predator0})
-  if (predator0 > 0.5){
+  if (predator0 > 0.25 && prey0 > 0.25){
     phaseArr.push({x: prey0, y: predator0})
   }
 
@@ -48,12 +48,12 @@ let ppChart = new Chart(ppctx, {
       {
         label: 'Prey',
         yAxisID: 'prey-y-axis',
-        data: simplify(preyArr,0.20),
+        data: simplify(preyArr,0.20, true),
         borderColor: "green"
       }, {
         label: 'Predator',
         yAxisID: 'predator-y-axis',
-        data: simplify(predatorArr,0.20),
+        data: simplify(predatorArr,0.20, true),
         borderColor: "red"
       }
     ]
