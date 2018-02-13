@@ -5,10 +5,92 @@
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Lotka-Volterra Visualiser</title>
+    <link rel="stylesheet" href="css/nouislider.min.css" />
     <link rel="stylesheet" href="css/liteweight.min.css" />
+    <style>
+      .row{
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .column {
+        float: left;
+        width: 50%;
+      }
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
   </head>
   <body class="main-body">
     <h1 class="title title-1 text-center">Lotka-Volterra Visualiser</h1>
+    <div class="card card-bordered-primary">
+      <div class="row">
+        <div class="column">
+          Prey Starting Number: <span id="prey-number-value"></span>
+        </div>
+        <div class="column">
+          <div id="prey-number-slider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          Predator Starting Number: <span id="predator-number-value"></span>
+        </div>
+        <div class="column">
+          <div id="predator-number-slider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          Prey Growth Rate: <span id="prey-growth-value"></span>
+        </div>
+        <div class="column">
+          <div id="prey-growth-slider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          Prey Predation Rate: <span id="prey-predation-value"></span>
+        </div>
+        <div class="column">
+          <div id="prey-predation-slider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          Predator Growth Rate: <span id="predator-growth-value"></span>
+        </div>
+        <div class="column">
+          <div id="predator-growth-slider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          Predator Death Rate: <span id="predator-death-value"></span>
+        </div>
+        <div class="column">
+          <div id="predator-death-slider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          Step Number: <span id="euler-step-value">0.01</span>
+        </div>
+        <div class="column">
+          <div id="euler-step-slider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          Total Steps: <span id="euler-total-value"></span>
+        </div>
+        <div class="column">
+          <div id="euler-total-slider"></div>
+        </div>
+      </div>
+    </div>
     <div class="card card-bordered-primary">
       <canvas id="ppChart" class="block-balance"></canvas>
     </div>
@@ -18,5 +100,6 @@
   </body>
   <script src="js/Chart.bundle.min.js"></script>
   <script src="js/simplify.js"></script>
+  <script src="js/nouislider.min.js"></script>
   <script src="js/app.js"></script>
 </html>
