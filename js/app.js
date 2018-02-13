@@ -31,9 +31,18 @@ function doEuler(prey0, predator0) {
 
     prey0 = prey;
     predator0 = predator;
-
-    prey += step * preyEq(prey0, predator0);
-    predator += step * predatorEq(prey0, predator0);
+    if (prey + step * preyEq(prey0, predator0) < 0){
+      prey = 0;
+    }
+    else{
+      prey += step * preyEq(prey0, predator0);
+    }
+    if (predator + step * predatorEq(prey0, predator0) < 0){
+      predator = 0;
+    }
+    else{
+      predator += step * predatorEq(prey0, predator0);
+    }
   }
   return [preyArr, predatorArr, phaseArr]
 }
