@@ -1,12 +1,12 @@
 "use strict";
 
-let a = 1.5;
-let b = 1.2;
-let c = 2.1;
-let d = 1.8;
+let a = 3; // the rate of growth
+let b = 1.2; // the rate of predation
+let c = 0.8; // predator growth rate
+let d = 0.5; // the natural death rate
 
-let step = 0.01;
-let time = 50;
+let step = 0.01; // each step for the Euler step method
+let time = 50; // total steps
 
 let prey0 = 10;
 let predator0 = 5;
@@ -29,7 +29,7 @@ function predatorEq(x, y) {
 for (let i = 0; i < time; i += step) {
   preyArr.push({x: i, y: prey0})
   predatorArr.push({x: i, y: predator0})
-  if (predator0 > 0.25 && prey0 > 0.25){
+  if (predator0 > 0.5 && prey0 > 0.5){
     phaseArr.push({x: prey0, y: predator0})
   }
 
@@ -40,6 +40,12 @@ for (let i = 0; i < time; i += step) {
   predator += step * predatorEq(prey0, predator0);
 }
 
+//let preyArrS = preyArr;
+//let predatorArrS = predatorArr;
+
+let preyArrS = simplify(preyArr,0.20, true);
+let predatorArrS = simplify(predatorArr,0.20, true);
+
 let ppctx = document.getElementById("ppChart").getContext('2d');
 let ppChart = new Chart(ppctx, {
   type: 'line',
@@ -48,12 +54,12 @@ let ppChart = new Chart(ppctx, {
       {
         label: 'Prey',
         yAxisID: 'prey-y-axis',
-        data: simplify(preyArr,0.20, true),
+        data: preyArrS,
         borderColor: "green"
       }, {
         label: 'Predator',
         yAxisID: 'predator-y-axis',
-        data: simplify(predatorArr,0.20, true),
+        data: predatorArrS,
         borderColor: "red"
       }
     ]
