@@ -8,11 +8,11 @@ let step = 0.01; // each step for the Euler step method
 let time = 50; // total steps
 
 function preyEq(x, y) {
-  return (a * x) - (b * x * y);
+  return x * (a - b * y);
 }
 
 function predatorEq(x, y) {
-  return (c * x * y) - (d * y)
+  return -y * (c - d * x);
 }
 
 function doEuler(prey0, predator0) {
