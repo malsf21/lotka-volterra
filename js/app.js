@@ -44,8 +44,7 @@ let ppChart = new Chart(ppctx, {
   data: {
     datasets: [
       {
-        label: 'Prey',
-        yAxisID: 'prey-y-axis',
+        label: 'Population of Prey',
         data: [
           {
             'x': 0,
@@ -54,8 +53,7 @@ let ppChart = new Chart(ppctx, {
         ],
         borderColor: "green"
       }, {
-        label: 'Predator',
-        yAxisID: 'predator-y-axis',
+        label: 'Population of Predators',
         data: [
           {
             'x': 0,
@@ -80,20 +78,11 @@ let ppChart = new Chart(ppctx, {
       ],
       yAxes: [
         {
-          id: 'prey-y-axis',
           type: 'linear',
           position: 'left',
           scaleLabel: {
             display: true,
-            labelString: "# of Prey"
-          }
-        }, {
-          id: 'predator-y-axis',
-          type: 'linear',
-          position: 'right',
-          scaleLabel: {
-            display: true,
-            labelString: "# of Predators"
+            labelString: "Population"
           }
         }
       ]
@@ -130,7 +119,7 @@ let phaseChart = new Chart(phasectx, {
           position: 'bottom',
           scaleLabel: {
             display: true,
-            labelString: "# of Prey"
+            labelString: "Population of Prey"
           }
         }
       ],
@@ -139,7 +128,7 @@ let phaseChart = new Chart(phasectx, {
           type: 'linear',
           scaleLabel: {
             display: true,
-            labelString: "# of Predators"
+            labelString: "Population of Predators"
           }
         }
       ]
