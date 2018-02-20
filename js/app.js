@@ -1,11 +1,11 @@
 "use strict";
 
-let a = 3; // the rate of growth
-let b = 1.2; // the rate of predation
-let c = 0.8; // predator growth rate
-let d = 0.5; // the natural death rate
+let a; // the rate of growth
+let b; // the rate of predation
+let c; // predator growth rate
+let d; // the natural death rate
 let step = 0.01; // each step for the Euler step method
-let time = 50; // total steps
+let time; // total steps
 
 function preyEq(x, y) {
   return x * (a - (b * y));
@@ -243,7 +243,7 @@ noUiSlider.create(eulerStepSlider, {
 });
 */
 noUiSlider.create(eulerTotalSlider, {
-  start: 50,
+  start: 100,
   step: 1,
   range: {
     'min': 1,
@@ -296,3 +296,16 @@ eulerTotalSlider.noUiSlider.on('update', function(value) {
   updateCharts(preyNumberSlider.noUiSlider.get(), predatorNumberSlider.noUiSlider.get())
   eulerTotalValue.innerHTML = value;
 });
+
+function reset(){
+  preyGrowthSlider.noUiSlider.set(3);
+  preyPredationSlider.noUiSlider.set(1.2);
+  predatorGrowthSlider.noUiSlider.set(0.8);
+  predatorDeathSlider.noUiSlider.set(0.5);
+  step = 0.01;
+  eulerTotalSlider.noUiSlider.set(100);
+  preyNumberSlider.noUiSlider.set(10)
+  predatorNumberSlider.noUiSlider.set(5)
+}
+
+document.getElementById('reset').addEventListener('click',reset, false);
