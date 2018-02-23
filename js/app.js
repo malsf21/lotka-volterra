@@ -189,7 +189,7 @@ noUiSlider.create(preyNumberSlider, {
   step: 1,
   range: {
     'min': 1,
-    'max': 5000
+    'max': 50
   }
 });
 
@@ -198,7 +198,7 @@ noUiSlider.create(predatorNumberSlider, {
   step: 1,
   range: {
     'min': 1,
-    'max': 5000
+    'max': 50
   }
 });
 
@@ -206,7 +206,7 @@ noUiSlider.create(preyGrowthSlider, {
   start: 3,
   range: {
     'min': 0.01,
-    'max': 1000
+    'max': 25
   }
 });
 
@@ -214,7 +214,7 @@ noUiSlider.create(preyPredationSlider, {
   start: 1.2,
   range: {
     'min': 0.01,
-    'max': 2000
+    'max': 25
   }
 });
 
@@ -222,7 +222,7 @@ noUiSlider.create(predatorGrowthSlider, {
   start: 0.8,
   range: {
     'min': 0.01,
-    'max': 1000
+    'max': 25
   }
 });
 
@@ -230,7 +230,7 @@ noUiSlider.create(predatorDeathSlider, {
   start: 0.5,
   range: {
     'min': 0.01,
-    'max': 1000
+    'max': 25
   }
 });
 /*
