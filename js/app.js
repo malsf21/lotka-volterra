@@ -172,7 +172,7 @@ let preyGrowthSlider = document.getElementById('prey-growth-slider');
 let preyPredationSlider = document.getElementById('prey-predation-slider');
 let predatorGrowthSlider = document.getElementById('predator-growth-slider');
 let predatorDeathSlider = document.getElementById('predator-death-slider');
-let eulerStepSlider = document.getElementById('euler-step-slider');
+//let eulerStepSlider = document.getElementById('euler-step-slider');
 let eulerTotalSlider = document.getElementById('euler-total-slider');
 
 let preyNumberValue = document.getElementById('prey-number-value');
@@ -297,15 +297,26 @@ eulerTotalSlider.noUiSlider.on('update', function(value) {
   eulerTotalValue.innerHTML = value;
 });
 
-function reset(){
-  preyGrowthSlider.noUiSlider.set(3);
-  preyPredationSlider.noUiSlider.set(1.2);
-  predatorGrowthSlider.noUiSlider.set(0.8);
-  predatorDeathSlider.noUiSlider.set(0.5);
-  step = 0.01;
-  eulerTotalSlider.noUiSlider.set(100);
-  preyNumberSlider.noUiSlider.set(10)
-  predatorNumberSlider.noUiSlider.set(5)
+function setVar(x,y,a,b,c,d,s,t){
+  preyNumberSlider.noUiSlider.set(x)
+  predatorNumberSlider.noUiSlider.set(y)
+  preyGrowthSlider.noUiSlider.set(a);
+  preyPredationSlider.noUiSlider.set(b);
+  predatorGrowthSlider.noUiSlider.set(c);
+  predatorDeathSlider.noUiSlider.set(d);
+  setStep(s)
+  eulerTotalSlider.noUiSlider.set(t);
 }
 
-document.getElementById('reset').addEventListener('click',reset, false);
+function setStep(s){
+  step = s;
+  eulerStepValue.innerHTML = s;
+  updateCharts(preyNumberSlider.noUiSlider.get(), predatorNumberSlider.noUiSlider.get())
+}
+
+document.getElementById('do-reset').addEventListener('click',function(){
+  setVar(10,5,3,1.2,0.8,0.5,0.01,100)
+}, false);
+document.getElementById('do-perfect').addEventListener('click',function(){
+  setVar(1,1,1,1,1,1,1,10)
+}, false);

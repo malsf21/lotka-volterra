@@ -26,6 +26,7 @@
   <body class="main-body">
     <h1 class="title title-1 text-center">Lotka-Volterra Visualiser</h1>
     <div class="card card-bordered-primary">
+      <h2 class="title title-2 text-center">Options</h2>
       <div class="row">
         <div class="column">
           Prey Starting Number: <span id="prey-number-value"></span>
@@ -79,7 +80,10 @@
           Step Number: <span id="euler-step-value">0.01</span>
         </div>
         <div class="column">
-          <div id="euler-step-slider"></div>
+          <a class="button button-primary" onclick="setStep(0.005)">0.005</a>
+          <a class="button button-primary" onclick="setStep(0.01)">0.01</a>
+          <a class="button button-primary" onclick="setStep(0.025)">0.025</a>
+          <a class="button button-primary" onclick="setStep(0.05)">0.05</a>
         </div>
       </div>
       <div class="row">
@@ -91,13 +95,16 @@
         </div>
       </div>
       <div class="text-center">
-        <a class="button button-primary" id="reset">Reset</a>
+        <a class="button button-primary" id="do-perfect">Perfect Equilibrium</a>
+        <a class="button button-primary" id="do-reset">Reset</a>
       </div>
     </div>
     <div class="card card-bordered-primary">
+        <h2 class="title title-2 text-center">Predator &amp; Prey Population vs. Time</h2>
       <canvas id="ppChart" class="block-balance"></canvas>
     </div>
     <div class="card card-bordered-primary">
+        <h2 class="title title-2 text-center">Predator Population vs. Prey Population</h2>
       <canvas id="phaseChart" class="block-balance"></canvas>
     </div>
   </body>
