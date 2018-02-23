@@ -23,8 +23,8 @@ function doEuler(prey0, predator0) {
   let phaseArr = [];
 
   for (let i = 0; i < time; i += step) {
-    preyArr.push({x: i, y: prey0})
-    predatorArr.push({x: i, y: predator0})
+    preyArr.push({x: i/step, y: prey0})
+    predatorArr.push({x: i/step, y: predator0})
     if (predator0 > 0.5 && prey0 > 0.5) {
       phaseArr.push({x: prey0, y: predator0})
     }
@@ -189,7 +189,7 @@ noUiSlider.create(preyNumberSlider, {
   step: 1,
   range: {
     'min': 1,
-    'max': 50
+    'max': 5000
   }
 });
 
@@ -198,7 +198,7 @@ noUiSlider.create(predatorNumberSlider, {
   step: 1,
   range: {
     'min': 1,
-    'max': 50
+    'max': 5000
   }
 });
 
@@ -206,7 +206,7 @@ noUiSlider.create(preyGrowthSlider, {
   start: 3,
   range: {
     'min': 0.01,
-    'max': 10
+    'max': 1000
   }
 });
 
@@ -214,7 +214,7 @@ noUiSlider.create(preyPredationSlider, {
   start: 1.2,
   range: {
     'min': 0.01,
-    'max': 10
+    'max': 2000
   }
 });
 
@@ -222,7 +222,7 @@ noUiSlider.create(predatorGrowthSlider, {
   start: 0.8,
   range: {
     'min': 0.01,
-    'max': 10
+    'max': 1000
   }
 });
 
@@ -230,7 +230,7 @@ noUiSlider.create(predatorDeathSlider, {
   start: 0.5,
   range: {
     'min': 0.01,
-    'max': 10
+    'max': 1000
   }
 });
 /*
@@ -294,7 +294,7 @@ eulerStepSlider.noUiSlider.on('update', function(value) {
 eulerTotalSlider.noUiSlider.on('update', function(value) {
   time = Number(value[0])
   updateCharts(preyNumberSlider.noUiSlider.get(), predatorNumberSlider.noUiSlider.get())
-  eulerTotalValue.innerHTML = value;
+  eulerTotalValue.innerHTML = value/step;
 });
 
 function setVar(x,y,a,b,c,d,s,t){
