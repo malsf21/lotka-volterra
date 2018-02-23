@@ -206,7 +206,7 @@ noUiSlider.create(preyGrowthSlider, {
   start: 3,
   range: {
     'min': 0.01,
-    'max': 5
+    'max': 10
   }
 });
 
@@ -214,7 +214,7 @@ noUiSlider.create(preyPredationSlider, {
   start: 1.2,
   range: {
     'min': 0.01,
-    'max': 5
+    'max': 10
   }
 });
 
@@ -222,7 +222,7 @@ noUiSlider.create(predatorGrowthSlider, {
   start: 0.8,
   range: {
     'min': 0.01,
-    'max': 5
+    'max': 10
   }
 });
 
@@ -230,7 +230,7 @@ noUiSlider.create(predatorDeathSlider, {
   start: 0.5,
   range: {
     'min': 0.01,
-    'max': 5
+    'max': 10
   }
 });
 /*
@@ -318,5 +318,5 @@ document.getElementById('do-reset').addEventListener('click',function(){
   setVar(10,5,3,1.2,0.8,0.5,0.01,100)
 }, false);
 document.getElementById('do-perfect').addEventListener('click',function(){
-  setVar(1,1,1,1,1,1,1,10)
+  setVar(4,3,3,1,8,2,1,10)
 }, false);
